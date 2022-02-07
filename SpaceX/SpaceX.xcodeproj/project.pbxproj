@@ -16,6 +16,7 @@
 		101AF53A27B13206002F9B66 /* RocketListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF53927B13206002F9B66 /* RocketListVC.swift */; };
 		101AF53F27B133C8002F9B66 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 101AF53D27B133C8002F9B66 /* Roboto-Medium.ttf */; };
 		101AF54027B133C8002F9B66 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 101AF53E27B133C8002F9B66 /* Roboto-Bold.ttf */; };
+		101AF54527B1522C002F9B66 /* ViewWithTwoShadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF54427B1522C002F9B66 /* ViewWithTwoShadows.swift */; };
 		1086E96127AF28F500C92686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96027AF28F500C92686 /* AppDelegate.swift */; };
 		1086E96327AF28F500C92686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96227AF28F500C92686 /* SceneDelegate.swift */; };
 		1086E96A27AF28F500C92686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1086E96927AF28F500C92686 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		101AF53927B13206002F9B66 /* RocketListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketListVC.swift; sourceTree = "<group>"; };
 		101AF53D27B133C8002F9B66 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		101AF53E27B133C8002F9B66 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		101AF54427B1522C002F9B66 /* ViewWithTwoShadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTwoShadows.swift; sourceTree = "<group>"; };
 		1086E95D27AF28F500C92686 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1086E96027AF28F500C92686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1086E96227AF28F500C92686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		101AF52727B126CC002F9B66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				101AF54427B1522C002F9B66 /* ViewWithTwoShadows.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				1086E96327AF28F500C92686 /* SceneDelegate.swift in Sources */,
 				101AF53A27B13206002F9B66 /* RocketListVC.swift in Sources */,
 				101AF53227B13178002F9B66 /* LaunchpadListVC.swift in Sources */,
+				101AF54527B1522C002F9B66 /* ViewWithTwoShadows.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
