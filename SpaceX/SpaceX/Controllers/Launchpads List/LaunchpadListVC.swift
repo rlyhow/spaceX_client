@@ -22,9 +22,16 @@ class LaunchpadListVC: UIViewController {
         return collection
     }()
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.color = .white
+        indicator.style = .large
+        return indicator
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(LaunchpadCell.self, forCellWithReuseIdentifier: "LaunchpadCell")
@@ -35,11 +42,13 @@ class LaunchpadListVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         perfomLoadingWithGETRequest()
     }
     
     func addViews() {
         view.addSubview(collectionView)
+        view.addSubview(activityIndicator)
     }
     
     func setupConstraints() {
@@ -48,12 +57,16 @@ class LaunchpadListVC: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
     
     func perfomLoadingWithGETRequest() {
+        activityIndicator.startAnimating()
+        
         networkManager.performGetRequest(urlString: urlString, completionHandler: { (data, error) in
-            
             if let _error = error {
                 print(_error.localizedDescription)
                 return
@@ -70,6 +83,7 @@ class LaunchpadListVC: UIViewController {
                 dataSourceLaunchpads = launchpads
                 filteredDataSource = launchpads
                 collectionView.reloadData()
+                activityIndicator.stopAnimating()
             }
             
         })
