@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RocketNavVC: UIViewController {
+class RocketNavVC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

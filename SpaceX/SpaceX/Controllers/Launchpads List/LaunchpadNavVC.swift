@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LaunchpadNavVC: UIViewController {
+class LaunchpadNavVC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
