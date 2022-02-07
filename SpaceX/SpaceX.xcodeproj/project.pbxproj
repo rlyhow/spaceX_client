@@ -18,6 +18,7 @@
 		101AF54027B133C8002F9B66 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 101AF53E27B133C8002F9B66 /* Roboto-Bold.ttf */; };
 		101AF54527B1522C002F9B66 /* ViewWithTwoShadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF54427B1522C002F9B66 /* ViewWithTwoShadows.swift */; };
 		101AF54827B1554B002F9B66 /* LaunchpadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF54727B1554B002F9B66 /* LaunchpadCell.swift */; };
+		101AF54A27B1708F002F9B66 /* Launchpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF54927B1708F002F9B66 /* Launchpad.swift */; };
 		1086E96127AF28F500C92686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96027AF28F500C92686 /* AppDelegate.swift */; };
 		1086E96327AF28F500C92686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96227AF28F500C92686 /* SceneDelegate.swift */; };
 		1086E96A27AF28F500C92686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1086E96927AF28F500C92686 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		101AF53E27B133C8002F9B66 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		101AF54427B1522C002F9B66 /* ViewWithTwoShadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTwoShadows.swift; sourceTree = "<group>"; };
 		101AF54727B1554B002F9B66 /* LaunchpadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadCell.swift; sourceTree = "<group>"; };
+		101AF54927B1708F002F9B66 /* Launchpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launchpad.swift; sourceTree = "<group>"; };
 		1086E95D27AF28F500C92686 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1086E96027AF28F500C92686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1086E96227AF28F500C92686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		101AF52627B126BC002F9B66 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				101AF54927B1708F002F9B66 /* Launchpad.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				101AF53027B13147002F9B66 /* LaunchpadNavVC.swift in Sources */,
 				1086E96127AF28F500C92686 /* AppDelegate.swift in Sources */,
 				101AF53427B131C0002F9B66 /* LaunchNavVC.swift in Sources */,
+				101AF54A27B1708F002F9B66 /* Launchpad.swift in Sources */,
 				101AF54827B1554B002F9B66 /* LaunchpadCell.swift in Sources */,
 				1086E96327AF28F500C92686 /* SceneDelegate.swift in Sources */,
 				101AF53A27B13206002F9B66 /* RocketListVC.swift in Sources */,
