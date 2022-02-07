@@ -14,6 +14,8 @@
 		101AF53627B131DB002F9B66 /* LaunchListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF53527B131DB002F9B66 /* LaunchListVC.swift */; };
 		101AF53827B131F3002F9B66 /* RocketNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF53727B131F3002F9B66 /* RocketNavVC.swift */; };
 		101AF53A27B13206002F9B66 /* RocketListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF53927B13206002F9B66 /* RocketListVC.swift */; };
+		101AF53F27B133C8002F9B66 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 101AF53D27B133C8002F9B66 /* Roboto-Medium.ttf */; };
+		101AF54027B133C8002F9B66 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 101AF53E27B133C8002F9B66 /* Roboto-Bold.ttf */; };
 		1086E96127AF28F500C92686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96027AF28F500C92686 /* AppDelegate.swift */; };
 		1086E96327AF28F500C92686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96227AF28F500C92686 /* SceneDelegate.swift */; };
 		1086E96A27AF28F500C92686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1086E96927AF28F500C92686 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		101AF53527B131DB002F9B66 /* LaunchListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListVC.swift; sourceTree = "<group>"; };
 		101AF53727B131F3002F9B66 /* RocketNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketNavVC.swift; sourceTree = "<group>"; };
 		101AF53927B13206002F9B66 /* RocketListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketListVC.swift; sourceTree = "<group>"; };
+		101AF53D27B133C8002F9B66 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		101AF53E27B133C8002F9B66 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		1086E95D27AF28F500C92686 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1086E96027AF28F500C92686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1086E96227AF28F500C92686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 		101AF52927B126E5002F9B66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				101AF53C27B133A0002F9B66 /* Fonts */,
 				1086E96927AF28F500C92686 /* Assets.xcassets */,
 				1086E96B27AF28F500C92686 /* LaunchScreen.storyboard */,
 				1086E96E27AF28F500C92686 /* Info.plist */,
@@ -107,6 +112,15 @@
 				101AF53127B13178002F9B66 /* LaunchpadListVC.swift */,
 			);
 			path = "Launchpads List";
+			sourceTree = "<group>";
+		};
+		101AF53C27B133A0002F9B66 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				101AF53E27B133C8002F9B66 /* Roboto-Bold.ttf */,
+				101AF53D27B133C8002F9B66 /* Roboto-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		1086E95427AF28F400C92686 = {
@@ -198,6 +212,8 @@
 			files = (
 				1086E96D27AF28F500C92686 /* LaunchScreen.storyboard in Resources */,
 				1086E96A27AF28F500C92686 /* Assets.xcassets in Resources */,
+				101AF54027B133C8002F9B66 /* Roboto-Bold.ttf in Resources */,
+				101AF53F27B133C8002F9B66 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
