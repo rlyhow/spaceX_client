@@ -22,6 +22,7 @@ class LaunchpadListVC: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.register(LaunchpadCell.self, forCellWithReuseIdentifier: "LaunchpadCell")
         
         addViews()
         setupConstraints()
@@ -49,7 +50,9 @@ extension LaunchpadListVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
+        
+        let cell: LaunchpadCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LaunchpadCell", for: indexPath) as! LaunchpadCell
+        
         return cell
     }
 }

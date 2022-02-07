@@ -9,12 +9,6 @@ import UIKit
 
 class LaunchpadCell: UICollectionViewCell {
     
-    private let shadowView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private lazy var launchpadTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -67,30 +61,24 @@ class LaunchpadCell: UICollectionViewCell {
     }
     
     private func addViews() {
-        addSubview(shadowView)
-        
-        shadowView.addSubview(launchpadTitleLabel)
-        shadowView.addSubview(launchpadLocationLabel)
-        shadowView.addSubview(launchpadStatusView)
+        addSubview(launchpadTitleLabel)
+        addSubview(launchpadLocationLabel)
+        addSubview(launchpadStatusView)
         
         launchpadStatusView.addSubview(launchpadStatusLabel)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            shadowView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            shadowView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            shadowView.topAnchor.constraint(equalTo: topAnchor),
-            shadowView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            launchpadTitleLabel.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor, constant: 20),
-            launchpadTitleLabel.topAnchor.constraint(equalTo: shadowView.topAnchor, constant: 20),
+            launchpadTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            launchpadTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             
             launchpadLocationLabel.leadingAnchor.constraint(equalTo: launchpadTitleLabel.leadingAnchor),
             launchpadLocationLabel.topAnchor.constraint(equalTo: launchpadTitleLabel.bottomAnchor, constant: 5),
             
             launchpadStatusView.leadingAnchor.constraint(equalTo: launchpadLocationLabel.leadingAnchor),
-            launchpadStatusView.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor, constant: -17),
+            launchpadStatusView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -17),
             launchpadStatusView.trailingAnchor.constraint(equalTo: launchpadStatusLabel.trailingAnchor, constant: 10),
             launchpadStatusView.heightAnchor.constraint(equalToConstant: 32),
             
