@@ -75,7 +75,7 @@ class LaunchpadListVC: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension LaunchpadListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        filteredDataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
