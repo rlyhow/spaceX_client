@@ -9,6 +9,11 @@ import UIKit
 
 class LaunchpadListVC: UIViewController {
     
+    private let networkManager = NetworkManager()
+    private var dataSourceLaunchpads: [Launchpad] = []
+    private var filteredDataSource: [Launchpad] = []
+    private let urlString = "https://api.spacexdata.com/v4/launchpads"
+    
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -39,6 +44,30 @@ class LaunchpadListVC: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+    
+    func perfomLoadingWithGETRequest() {
+        networkManager.performGetRequest(urlString: urlString, completionHandler: { (data, error) in
+            
+            if let _error = error {
+                print(_error.localizedDescription)
+                return
+            }
+            
+            guard let _data = data else {
+                print("no data")
+                return
+            }
+            
+            guard let launchpads = try? JSONDecoder().decode([Launchpad].self, from: _data) else { return }
+            
+            DispatchQueue.main.async { [unowned self] in
+                dataSourceLaunchpads = launchpads
+                filteredDataSource = launchpads
+                collectionView.reloadData()
+            }
+            
+        })
     }
     
 }
