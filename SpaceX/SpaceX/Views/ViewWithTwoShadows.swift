@@ -15,7 +15,7 @@ class ViewWithTwoShadows: UIView {
         return view
     }()
     
-    init(frame: CGRect, backgroundColor: UIColor) {
+    init(frame: CGRect, backgroundColor: UIColor?) {
         super.init(frame: frame)
         
         setupView()
