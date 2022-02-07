@@ -87,4 +87,10 @@ class LaunchpadCell: UICollectionViewCell {
         ])
     }
     
+    func setupLaunchpadCellContent(launchpadObject: Launchpad) {
+        self.launchpadTitleLabel.text = launchpadObject.name
+        self.launchpadLocationLabel.text = launchpadObject.region
+        self.launchpadStatusLabel.text = launchpadObject.status
+    }
+    
 }

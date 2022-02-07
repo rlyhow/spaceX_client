@@ -33,6 +33,11 @@ class LaunchpadListVC: UIViewController {
         setupConstraints()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        perfomLoadingWithGETRequest()
+    }
+    
     func addViews() {
         view.addSubview(collectionView)
     }
@@ -81,6 +86,9 @@ extension LaunchpadListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: LaunchpadCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LaunchpadCell", for: indexPath) as! LaunchpadCell
+        
+        let object = filteredDataSource[indexPath.item]
+        cell.setupLaunchpadCellContent(launchpadObject: object)
         
         return cell
     }
