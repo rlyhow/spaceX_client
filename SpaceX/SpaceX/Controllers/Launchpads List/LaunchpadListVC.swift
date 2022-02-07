@@ -20,6 +20,9 @@ class LaunchpadListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
         addViews()
         setupConstraints()
     }
@@ -38,3 +41,39 @@ class LaunchpadListVC: UIViewController {
     }
     
 }
+
+// MARK: - UICollectionViewDataSource
+extension LaunchpadListVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension LaunchpadListVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let paddingWidth: CGFloat = 18 * 2
+        let availableWidth = collectionView.frame.width - paddingWidth
+        return  CGSize(width: availableWidth, height: availableWidth / 2.6)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: 30, left: 18, bottom: 30, right: 18)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        30
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+extension LaunchpadListVC: UICollectionViewDelegate {
+    
+}
+
