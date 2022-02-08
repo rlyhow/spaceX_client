@@ -132,7 +132,7 @@ class LaunchCell: UICollectionViewCell {
             patchBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             patchBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: 18),
             patchBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -17),
-            patchBackgroundView.widthAnchor.constraint(equalTo: heightAnchor),
+            patchBackgroundView.widthAnchor.constraint(equalTo: patchBackgroundView.heightAnchor),
             
             patchImageView.leadingAnchor.constraint(equalTo: patchBackgroundView.leadingAnchor, constant: 9.5),
             patchImageView.trailingAnchor.constraint(equalTo: patchBackgroundView.trailingAnchor, constant: -9.5),
