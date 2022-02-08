@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1007C98527B27695005EC44B /* RocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007C98427B27695005EC44B /* RocketCell.swift */; };
+		1007C98727B27E80005EC44B /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007C98627B27E80005EC44B /* Rocket.swift */; };
 		101AF52B27B12DF1002F9B66 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF52A27B12DF1002F9B66 /* TabBarController.swift */; };
 		101AF53027B13147002F9B66 /* LaunchpadNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF52F27B13147002F9B66 /* LaunchpadNavVC.swift */; };
 		101AF53227B13178002F9B66 /* LaunchpadListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF53127B13178002F9B66 /* LaunchpadListVC.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		1007C98427B27695005EC44B /* RocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketCell.swift; sourceTree = "<group>"; };
+		1007C98627B27E80005EC44B /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		101AF52A27B12DF1002F9B66 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		101AF52F27B13147002F9B66 /* LaunchpadNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadNavVC.swift; sourceTree = "<group>"; };
 		101AF53127B13178002F9B66 /* LaunchpadListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadListVC.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				101AF54927B1708F002F9B66 /* Launchpad.swift */,
+				1007C98627B27E80005EC44B /* Rocket.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				101AF52B27B12DF1002F9B66 /* TabBarController.swift in Sources */,
 				1007C98527B27695005EC44B /* RocketCell.swift in Sources */,
 				101AF53627B131DB002F9B66 /* LaunchListVC.swift in Sources */,
+				1007C98727B27E80005EC44B /* Rocket.swift in Sources */,
 				101AF53827B131F3002F9B66 /* RocketNavVC.swift in Sources */,
 				101AF54D27B1846F002F9B66 /* NetworkManager.swift in Sources */,
 				101AF53027B13147002F9B66 /* LaunchpadNavVC.swift in Sources */,
