@@ -31,6 +31,32 @@ class LaunchListVC: UIViewController {
         return indicator
     }()
     
+    private lazy var alertSort: UIAlertController = {
+        let alert = UIAlertController(title: nil, message: "Choose your option", preferredStyle: .actionSheet)
+        alert.view.tintColor = UIColor(named: "Coral")
+        
+        let action1 = UIAlertAction(title: "Launch date", style: .default, handler: { [unowned self] _ in
+            filteredDataSource.sort {
+                $0.dateUTC > $1.dateUTC
+            }
+            collectionView.reloadData()
+        })
+        let action2 = UIAlertAction(title: "Title", style: .default, handler: { [unowned self] _ in
+            filteredDataSource.sort {
+                $0.name < $1.name
+            }
+            collectionView.reloadData()
+        })
+        let action3 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        action3.setValue(UIColor.red, forKey: "titleTextColor")
+        
+        alert.addAction(action1)
+        alert.addAction(action2)
+        alert.addAction(action3)
+        
+        return alert
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +66,12 @@ class LaunchListVC: UIViewController {
         
         addViews()
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow.up.arrow.down"), style: .plain, target: self, action: #selector(sortCollection))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +94,10 @@ class LaunchListVC: UIViewController {
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
+    }
+    
+    @objc func sortCollection() {
+        self.present(alertSort, animated: true, completion: nil)
     }
     
     func perfomLoadingWithGETRequest() {
