@@ -56,6 +56,12 @@ class LaunchpadListVC: UIViewController {
         return alert
     }()
     
+    private lazy var filter: FilterSegmentedControl = {
+        let segment = FilterSegmentedControl("All", "Active", "Retired")
+        segment.addTarget(self, action: #selector(applyFilter), for: .valueChanged)
+        return segment
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -69,6 +75,8 @@ class LaunchpadListVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationItem.titleView = filter
+        filter.selectedSegmentIndex = 0
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow.up.arrow.down"), style: .plain, target: self, action: #selector(sortCollection))
     }
     
@@ -85,6 +93,28 @@ class LaunchpadListVC: UIViewController {
     
     @objc func sortCollection() {
         self.present(alertSort, animated: true, completion: nil)
+    }
+    
+    @objc func applyFilter(_ sender: UISegmentedControl) {
+        switch (sender.selectedSegmentIndex) {
+        case 0:
+            filteredDataSource = dataSourceLaunchpads.filter({ launchpad in
+                return true
+            })
+        case 1:
+            filteredDataSource = dataSourceLaunchpads.filter({ launchpad in
+                if launchpad.status == "active" { return true }
+                return false
+            })
+        case 2:
+            filteredDataSource = dataSourceLaunchpads.filter({ launchpad in
+                if launchpad.status == "retired" { return true }
+                return false
+            })
+        default:
+            break
+        }
+        collectionView.reloadData()
     }
     
     func setupConstraints() {
