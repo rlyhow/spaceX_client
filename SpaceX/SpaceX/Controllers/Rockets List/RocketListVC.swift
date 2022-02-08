@@ -8,7 +8,7 @@
 import UIKit
 
 class RocketListVC: UIViewController {
-
+    
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -19,9 +19,10 @@ class RocketListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.register(RocketCell.self, forCellWithReuseIdentifier: "RocketCell")
         
         addViews()
         setupConstraints()
@@ -30,7 +31,7 @@ class RocketListVC: UIViewController {
     func addViews() {
         view.addSubview(collectionView)
     }
-
+    
     func setupConstraints() {
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -50,8 +51,9 @@ extension RocketListVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-        let cell = UICollectionViewCell()
+        
+        let cell: RocketCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketCell", for: indexPath) as! RocketCell
+        
         return cell
     }
 }
