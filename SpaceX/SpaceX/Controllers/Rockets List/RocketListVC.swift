@@ -88,6 +88,9 @@ extension RocketListVC: UICollectionViewDataSource {
         
         let cell: RocketCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketCell", for: indexPath) as! RocketCell
         
+        let object = filteredDataSource[indexPath.item]
+        cell.setupRocketCellContent(rocketObject: object)
+        
         return cell
     }
 }

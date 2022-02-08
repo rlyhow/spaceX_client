@@ -171,4 +171,16 @@ class RocketCell: UICollectionViewCell {
         rocketNameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
     
+    func setupRocketCellContent(rocketObject: Rocket) {
+        self.rocketNameLabel.text = rocketObject.name
+        self.firstLaunchLabel.text = rocketObject.firstFlight
+        self.launchCostLabel.text = String(rocketObject.costPerLaunch) + "$"
+        self.successLabel.text = String(rocketObject.successRatePct) + "%"
+        if let img = rocketObject.rocketImage {
+            self.rocketImage.image = img
+        } else {
+            self.rocketImage.image = UIImage(named: "spaceX")
+        }
+    }
+    
 }
