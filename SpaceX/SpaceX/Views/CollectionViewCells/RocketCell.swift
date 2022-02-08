@@ -173,13 +173,13 @@ class RocketCell: UICollectionViewCell {
     
     func setupRocketCellContent(rocketObject: Rocket) {
         self.rocketNameLabel.text = rocketObject.name
-        self.firstLaunchLabel.text = rocketObject.firstFlight
+        self.firstLaunchLabel.text = rocketObject.firstFlight.getFormattedDate(formatFrom: "yyyy-MM-dd", formatTo: "MMMM d, yyyy")
         self.launchCostLabel.text = String(rocketObject.costPerLaunch) + "$"
         self.successLabel.text = String(rocketObject.successRatePct) + "%"
         if let img = rocketObject.rocketImage {
             self.rocketImage.image = img
         } else {
-            self.rocketImage.image = UIImage(named: "spaceX")
+            self.rocketImage.image = UIImage(named: "placeholderRocket")
         }
     }
     
