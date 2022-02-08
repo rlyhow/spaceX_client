@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager {
     
     private let urlSession = URLSession(configuration: .default)
+    private let operationQueue = OperationQueue()
     
     func performGetRequest (urlString: String, completionHandler: @escaping (Data?, Error?) -> Void) {
         guard let url = URL(string: urlString) else {
@@ -21,6 +23,14 @@ class NetworkManager {
         }
         
         task.resume()
+    }
+    
+    func loadImage(forUrl url: String, completion: @escaping (UIImage?) -> Void) {
+        let operation = DownloadImageOperation(url: url)
+        operation.completion = { image in
+            completion(image)
+        }
+        operationQueue.addOperation(operation)
     }
     
 }

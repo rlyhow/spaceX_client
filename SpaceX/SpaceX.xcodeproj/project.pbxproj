@@ -10,6 +10,7 @@
 		1007C98527B27695005EC44B /* RocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007C98427B27695005EC44B /* RocketCell.swift */; };
 		1007C98727B27E80005EC44B /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007C98627B27E80005EC44B /* Rocket.swift */; };
 		1007C98A27B28208005EC44B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007C98927B28208005EC44B /* Extensions.swift */; };
+		1007C98E27B292C2005EC44B /* DownloadImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007C98D27B292C2005EC44B /* DownloadImageOperation.swift */; };
 		101AF52B27B12DF1002F9B66 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF52A27B12DF1002F9B66 /* TabBarController.swift */; };
 		101AF53027B13147002F9B66 /* LaunchpadNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF52F27B13147002F9B66 /* LaunchpadNavVC.swift */; };
 		101AF53227B13178002F9B66 /* LaunchpadListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF53127B13178002F9B66 /* LaunchpadListVC.swift */; };
@@ -33,6 +34,7 @@
 		1007C98427B27695005EC44B /* RocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketCell.swift; sourceTree = "<group>"; };
 		1007C98627B27E80005EC44B /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		1007C98927B28208005EC44B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1007C98D27B292C2005EC44B /* DownloadImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageOperation.swift; sourceTree = "<group>"; };
 		101AF52A27B12DF1002F9B66 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		101AF52F27B13147002F9B66 /* LaunchpadNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadNavVC.swift; sourceTree = "<group>"; };
 		101AF53127B13178002F9B66 /* LaunchpadListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadListVC.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				101AF54C27B1846F002F9B66 /* NetworkManager.swift */,
+				1007C98D27B292C2005EC44B /* DownloadImageOperation.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				101AF54D27B1846F002F9B66 /* NetworkManager.swift in Sources */,
 				101AF53027B13147002F9B66 /* LaunchpadNavVC.swift in Sources */,
 				1086E96127AF28F500C92686 /* AppDelegate.swift in Sources */,
+				1007C98E27B292C2005EC44B /* DownloadImageOperation.swift in Sources */,
 				101AF53427B131C0002F9B66 /* LaunchNavVC.swift in Sources */,
 				101AF54A27B1708F002F9B66 /* Launchpad.swift in Sources */,
 				101AF54827B1554B002F9B66 /* LaunchpadCell.swift in Sources */,
