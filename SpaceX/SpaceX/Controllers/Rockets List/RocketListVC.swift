@@ -90,6 +90,21 @@ class RocketListVC: UIViewController {
         })
     }
     
+    func downloadImageForIndexPath(_ indexPath: IndexPath) {
+        let rocket = filteredDataSource[indexPath.item]
+        guard let urlString = rocket.flickrImages.first else {
+            return
+        }
+        
+        networkManager.loadImage(forUrl: urlString) { [unowned self] image in
+            DispatchQueue.main.async {
+                filteredDataSource[indexPath.item].rocketImage = image
+                collectionView.reloadItems(at: [indexPath])
+            }
+        }
+        
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -103,9 +118,12 @@ extension RocketListVC: UICollectionViewDataSource {
         
         let cell: RocketCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketCell", for: indexPath) as! RocketCell
         
+        if filteredDataSource[indexPath.item].rocketImage == nil {
+            downloadImageForIndexPath(indexPath)
+        }
+        
         let object = filteredDataSource[indexPath.item]
         cell.setupRocketCellContent(rocketObject: object)
-        
         return cell
     }
 }
