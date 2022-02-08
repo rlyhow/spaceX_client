@@ -9,6 +9,11 @@ import UIKit
 
 class RocketListVC: UIViewController {
     
+    private let networkManager = NetworkManager()
+    private var dataSourceRockets: [Rocket] = []
+    private var filteredDataSource: [Rocket] = []
+    private let urlString = "https://api.spacexdata.com/v4/rockets"
+    
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -28,6 +33,11 @@ class RocketListVC: UIViewController {
         setupConstraints()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        perfomLoadingWithGETRequest()
+    }
+    
     func addViews() {
         view.addSubview(collectionView)
     }
@@ -41,13 +51,37 @@ class RocketListVC: UIViewController {
         ])
     }
     
+    func perfomLoadingWithGETRequest() {
+        networkManager.performGetRequest(urlString: urlString, completionHandler: { (data, error) in
+            
+            if let _error = error {
+                print(_error.localizedDescription)
+                return
+            }
+            
+            guard let _data = data else {
+                print("no data")
+                return
+            }
+            
+            guard let rockets = try? JSONDecoder().decode([Rocket].self, from: _data) else { return }
+            
+            DispatchQueue.main.async { [unowned self] in
+                self.dataSourceRockets = rockets
+                filteredDataSource = rockets
+                collectionView.reloadData()
+            }
+            
+        })
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
 extension RocketListVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        filteredDataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
