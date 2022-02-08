@@ -31,6 +31,39 @@ class RocketListVC: UIViewController {
         return indicator
     }()
     
+    private lazy var alertSort: UIAlertController = {
+        let alert = UIAlertController(title: nil, message: "Choose your option", preferredStyle: .actionSheet)
+        alert.view.tintColor = UIColor(named: "Coral")
+        
+        let action1 = UIAlertAction(title: "First launch", style: .default, handler: { [unowned self] _ in
+            filteredDataSource.sort {
+                $0.firstFlight < $1.firstFlight
+            }
+            collectionView.reloadData()
+        })
+        let action2 = UIAlertAction(title: "Launch cost", style: .default, handler: { [unowned self] _ in
+            filteredDataSource.sort {
+                $0.costPerLaunch > $1.costPerLaunch
+            }
+            collectionView.reloadData()
+        })
+        let action3 = UIAlertAction(title: "Success rate", style: .default, handler: { [unowned self] _ in
+            filteredDataSource.sort {
+                $0.successRatePct > $1.successRatePct
+            }
+            collectionView.reloadData()
+        })
+        let action4 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        action4.setValue(UIColor.red, forKey: "titleTextColor")
+        
+        alert.addAction(action1)
+        alert.addAction(action2)
+        alert.addAction(action3)
+        alert.addAction(action4)
+        
+        return alert
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +73,12 @@ class RocketListVC: UIViewController {
         
         addViews()
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow.up.arrow.down"), style: .plain, target: self, action: #selector(sortCollection))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +101,10 @@ class RocketListVC: UIViewController {
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
+    }
+    
+    @objc func sortCollection() {
+        self.present(alertSort, animated: true, completion: nil)
     }
     
     func perfomLoadingWithGETRequest() {
