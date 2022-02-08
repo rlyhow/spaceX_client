@@ -23,6 +23,14 @@ class LaunchListVC: UIViewController {
         return collection
     }()
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.color = .white
+        indicator.style = .large
+        return indicator
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +49,7 @@ class LaunchListVC: UIViewController {
     
     func addViews() {
         view.addSubview(collectionView)
+        view.addSubview(activityIndicator)
     }
     
     func setupConstraints() {
@@ -49,10 +58,15 @@ class LaunchListVC: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
     
     func perfomLoadingWithGETRequest() {
+        activityIndicator.startAnimating()
+        
         networkManager.performGetRequest(urlString: urlString, completionHandler: { (data, error) in
             
             if let _error = error {
@@ -71,6 +85,7 @@ class LaunchListVC: UIViewController {
                 dataSourceLaunches = launches
                 filteredDataSource = launches
                 collectionView.reloadData()
+                activityIndicator.stopAnimating()
             }
             
         })
