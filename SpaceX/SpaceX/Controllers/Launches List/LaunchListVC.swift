@@ -100,6 +100,21 @@ class LaunchListVC: UIViewController {
         self.present(alertSort, animated: true, completion: nil)
     }
     
+    func compareTwoDates(date: String) -> Bool {
+        let currentDate = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        guard let launchDate = dateFormatter.date(from: date) else {
+            return false
+        }
+        
+        if currentDate.compare(launchDate) == .orderedAscending {
+            return true
+        }
+        return false
+    }
+    
     func perfomLoadingWithGETRequest() {
         activityIndicator.startAnimating()
         
