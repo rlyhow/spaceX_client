@@ -57,6 +57,12 @@ class LaunchListVC: UIViewController {
         return alert
     }()
     
+    private var filter: FilterSegmentedControl = {
+        let segment = FilterSegmentedControl("All", "Past", "Future")
+        segment.addTarget(self, action: #selector(applyFilter), for: .valueChanged)
+        return segment
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -98,6 +104,30 @@ class LaunchListVC: UIViewController {
     
     @objc func sortCollection() {
         self.present(alertSort, animated: true, completion: nil)
+    }
+    
+    @objc func applyFilter(_ sender: UISegmentedControl) {
+        switch (sender.selectedSegmentIndex) {
+        case 0:
+            filteredDataSource = dataSourceLaunches.filter({ launch in
+                return true
+            })
+        case 1:
+            filteredDataSource = dataSourceLaunches.filter({ launch in
+                if !compareTwoDates(date: launch.dateUTC) {
+                    return true
+                } else { return false }
+            })
+        case 2:
+            filteredDataSource = dataSourceLaunches.filter({ launch in
+                if compareTwoDates(date: launch.dateUTC) {
+                    return true
+                } else { return false }
+            })
+        default:
+            break
+        }
+        collectionView.reloadData()
     }
     
     func compareTwoDates(date: String) -> Bool {
