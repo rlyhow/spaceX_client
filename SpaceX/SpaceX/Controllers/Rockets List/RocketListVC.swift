@@ -13,6 +13,7 @@ class RocketListVC: UIViewController {
     private var dataSourceRockets: [Rocket] = []
     private var filteredDataSource: [Rocket] = []
     private let urlString = "https://api.spacexdata.com/v4/rockets"
+    private let imageCache = NSCache<NSString, UIImage>()
     
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView: UICollectionView = {
@@ -96,9 +97,15 @@ class RocketListVC: UIViewController {
             return
         }
         
+        if let image = imageCache.object(forKey: urlString as NSString) {
+            filteredDataSource[indexPath.item].rocketImage = image
+            return
+        }
+        
         networkManager.loadImage(forUrl: urlString) { [unowned self] image in
             DispatchQueue.main.async {
                 filteredDataSource[indexPath.item].rocketImage = image
+                imageCache.setObject(image!, forKey: urlString as NSString)
                 collectionView.reloadItems(at: [indexPath])
             }
         }
