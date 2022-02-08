@@ -57,7 +57,7 @@ class LaunchListVC: UIViewController {
         return alert
     }()
     
-    private var filter: FilterSegmentedControl = {
+    private lazy var filter: FilterSegmentedControl = {
         let segment = FilterSegmentedControl("All", "Past", "Future")
         segment.addTarget(self, action: #selector(applyFilter), for: .valueChanged)
         return segment
@@ -77,7 +77,9 @@ class LaunchListVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationItem.titleView = filter
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow.up.arrow.down"), style: .plain, target: self, action: #selector(sortCollection))
+        filter.selectedSegmentIndex = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -185,7 +187,7 @@ class LaunchListVC: UIViewController {
         
         networkManager.loadImage(forUrl: urlString) { [unowned self] image in
             DispatchQueue.main.async {
-                filteredDataSource[indexPath.item].patchImage = image
+                dataSourceLaunches[indexPath.item].patchImage = image
                 imageCache.setObject(image!, forKey: urlString as NSString)
                 collectionView.reloadItems(at: [indexPath])
             }
