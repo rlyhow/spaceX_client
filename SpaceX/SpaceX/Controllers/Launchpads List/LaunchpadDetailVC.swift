@@ -47,6 +47,21 @@ class LaunchpadDetailVC: UIViewController {
         return stack
     }()
     
+    lazy var overviewBlock: TableStackView = {
+        let stack = TableStackView()
+        stack.setup(label: "Overview")
+        stack.addInfo(labelText: "Region", detailsText: launchpadObject?.region)
+        stack.addInfo(labelText: "Location", detailsText: launchpadObject?.locality)
+        if let launchAttempts = launchpadObject?.launchAttempts {
+            stack.addInfo(labelText: "Launch attempts", detailsText: String(launchAttempts))
+        }
+        if let launchSuccesses = launchpadObject?.launchSuccesses {
+            stack.addInfo(labelText: "Launch attempts", detailsText: String(launchSuccesses))
+        }
+        
+        return stack
+    }()
+    
     lazy var mapBlock: MapStackView = {
         let stack = MapStackView(latitude: launchpadObject?.latitude, longitude: launchpadObject?.longitude, locality: launchpadObject?.locality, labelText: "Location")
         return stack
@@ -81,19 +96,23 @@ class LaunchpadDetailVC: UIViewController {
             mainStackView.addArrangedSubview(descriptionBlock)
         }
         
+        if launchpadObject?.region != nil || launchpadObject?.locality != nil || launchpadObject?.launchAttempts != nil || launchpadObject?.launchSuccesses != nil {
+            mainStackView.addArrangedSubview(overviewBlock)
+        }
+        
         if let _ = launchpadObject?.latitude, let _ = launchpadObject?.longitude {
             mainStackView.addArrangedSubview(mapBlock)
         }
         
     }
-
+    
     func addConstraints() {
         NSLayoutConstraint.activate([
             mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
             mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
+            
             headerBlock.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
             headerBlock.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
             headerBlock.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),

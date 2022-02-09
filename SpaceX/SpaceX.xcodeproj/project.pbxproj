@@ -35,6 +35,7 @@
 		108CB07627B2F67F003CE3A2 /* FilterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108CB07527B2F67F003CE3A2 /* FilterSegmentedControl.swift */; };
 		10BA71A227B4008700FF5FD0 /* DescriptionStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */; };
 		10BA71A427B4034300FF5FD0 /* MapStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA71A327B4034300FF5FD0 /* MapStackView.swift */; };
+		10BA71A627B4061100FF5FD0 /* TableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA71A527B4061100FF5FD0 /* TableStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		108CB07527B2F67F003CE3A2 /* FilterSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSegmentedControl.swift; sourceTree = "<group>"; };
 		10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionStackView.swift; sourceTree = "<group>"; };
 		10BA71A327B4034300FF5FD0 /* MapStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStackView.swift; sourceTree = "<group>"; };
+		10BA71A527B4061100FF5FD0 /* TableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				10048AB627B3E66900331405 /* LaunchpadDetailHeaderView.swift */,
 				10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */,
 				10BA71A327B4034300FF5FD0 /* MapStackView.swift */,
+				10BA71A527B4061100FF5FD0 /* TableStackView.swift */,
 			);
 			path = "Blocks For Detail Pages";
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				101AF54A27B1708F002F9B66 /* Launchpad.swift in Sources */,
 				101AF54827B1554B002F9B66 /* LaunchpadCell.swift in Sources */,
 				1007C98A27B28208005EC44B /* Extensions.swift in Sources */,
+				10BA71A627B4061100FF5FD0 /* TableStackView.swift in Sources */,
 				1086E96327AF28F500C92686 /* SceneDelegate.swift in Sources */,
 				10BA71A227B4008700FF5FD0 /* DescriptionStackView.swift in Sources */,
 				101AF53A27B13206002F9B66 /* RocketListVC.swift in Sources */,
