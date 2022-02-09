@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class LaunchpadDetailVC: UIViewController {
     
@@ -46,6 +47,11 @@ class LaunchpadDetailVC: UIViewController {
         return stack
     }()
     
+    lazy var mapBlock: MapStackView = {
+        let stack = MapStackView(latitude: launchpadObject?.latitude, longitude: launchpadObject?.longitude, locality: launchpadObject?.locality, labelText: "Location")
+        return stack
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -73,6 +79,10 @@ class LaunchpadDetailVC: UIViewController {
         
         if let _ = launchpadObject?.details {
             mainStackView.addArrangedSubview(descriptionBlock)
+        }
+        
+        if let _ = launchpadObject?.latitude, let _ = launchpadObject?.longitude {
+            mainStackView.addArrangedSubview(mapBlock)
         }
         
     }

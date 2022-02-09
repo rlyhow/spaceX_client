@@ -34,6 +34,7 @@
 		1086E96D27AF28F500C92686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1086E96B27AF28F500C92686 /* LaunchScreen.storyboard */; };
 		108CB07627B2F67F003CE3A2 /* FilterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108CB07527B2F67F003CE3A2 /* FilterSegmentedControl.swift */; };
 		10BA71A227B4008700FF5FD0 /* DescriptionStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */; };
+		10BA71A427B4034300FF5FD0 /* MapStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA71A327B4034300FF5FD0 /* MapStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		1086E96E27AF28F500C92686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		108CB07527B2F67F003CE3A2 /* FilterSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSegmentedControl.swift; sourceTree = "<group>"; };
 		10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionStackView.swift; sourceTree = "<group>"; };
+		10BA71A327B4034300FF5FD0 /* MapStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				10048AB627B3E66900331405 /* LaunchpadDetailHeaderView.swift */,
 				10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */,
+				10BA71A327B4034300FF5FD0 /* MapStackView.swift */,
 			);
 			path = "Blocks For Detail Pages";
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				10048AB727B3E66900331405 /* LaunchpadDetailHeaderView.swift in Sources */,
 				1086E96127AF28F500C92686 /* AppDelegate.swift in Sources */,
 				1007C99227B2A0D5005EC44B /* LaunchCell.swift in Sources */,
+				10BA71A427B4034300FF5FD0 /* MapStackView.swift in Sources */,
 				1007C98E27B292C2005EC44B /* DownloadImageOperation.swift in Sources */,
 				101AF53427B131C0002F9B66 /* LaunchNavVC.swift in Sources */,
 				1007C99027B2A06F005EC44B /* Launch.swift in Sources */,
