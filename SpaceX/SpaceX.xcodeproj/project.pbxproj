@@ -33,6 +33,7 @@
 		1086E96A27AF28F500C92686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1086E96927AF28F500C92686 /* Assets.xcassets */; };
 		1086E96D27AF28F500C92686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1086E96B27AF28F500C92686 /* LaunchScreen.storyboard */; };
 		108CB07627B2F67F003CE3A2 /* FilterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108CB07527B2F67F003CE3A2 /* FilterSegmentedControl.swift */; };
+		10BA71A227B4008700FF5FD0 /* DescriptionStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		1086E96C27AF28F500C92686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1086E96E27AF28F500C92686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		108CB07527B2F67F003CE3A2 /* FilterSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSegmentedControl.swift; sourceTree = "<group>"; };
+		10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				10048AB627B3E66900331405 /* LaunchpadDetailHeaderView.swift */,
+				10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */,
 			);
 			path = "Blocks For Detail Pages";
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				101AF54827B1554B002F9B66 /* LaunchpadCell.swift in Sources */,
 				1007C98A27B28208005EC44B /* Extensions.swift in Sources */,
 				1086E96327AF28F500C92686 /* SceneDelegate.swift in Sources */,
+				10BA71A227B4008700FF5FD0 /* DescriptionStackView.swift in Sources */,
 				101AF53A27B13206002F9B66 /* RocketListVC.swift in Sources */,
 				101AF53227B13178002F9B66 /* LaunchpadListVC.swift in Sources */,
 				101AF54527B1522C002F9B66 /* ViewWithTwoShadows.swift in Sources */,
