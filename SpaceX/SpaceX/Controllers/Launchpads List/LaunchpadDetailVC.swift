@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LauchpadDetailVC: UIViewController {
+class LaunchpadDetailVC: UIViewController {
     
     var launchpadObject: Launchpad?
     

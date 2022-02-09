@@ -27,7 +27,7 @@
 		101AF54827B1554B002F9B66 /* LaunchpadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF54727B1554B002F9B66 /* LaunchpadCell.swift */; };
 		101AF54A27B1708F002F9B66 /* Launchpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF54927B1708F002F9B66 /* Launchpad.swift */; };
 		101AF54D27B1846F002F9B66 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF54C27B1846F002F9B66 /* NetworkManager.swift */; };
-		107DD92027B3DD3A001EFE24 /* LauchpadDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DD91F27B3DD3A001EFE24 /* LauchpadDetailVC.swift */; };
+		107DD92027B3DD3A001EFE24 /* LaunchpadDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DD91F27B3DD3A001EFE24 /* LaunchpadDetailVC.swift */; };
 		1086E96127AF28F500C92686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96027AF28F500C92686 /* AppDelegate.swift */; };
 		1086E96327AF28F500C92686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96227AF28F500C92686 /* SceneDelegate.swift */; };
 		1086E96A27AF28F500C92686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1086E96927AF28F500C92686 /* Assets.xcassets */; };
@@ -56,7 +56,7 @@
 		101AF54727B1554B002F9B66 /* LaunchpadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadCell.swift; sourceTree = "<group>"; };
 		101AF54927B1708F002F9B66 /* Launchpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launchpad.swift; sourceTree = "<group>"; };
 		101AF54C27B1846F002F9B66 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		107DD91F27B3DD3A001EFE24 /* LauchpadDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchpadDetailVC.swift; sourceTree = "<group>"; };
+		107DD91F27B3DD3A001EFE24 /* LaunchpadDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadDetailVC.swift; sourceTree = "<group>"; };
 		1086E95D27AF28F500C92686 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1086E96027AF28F500C92686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1086E96227AF28F500C92686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 			children = (
 				101AF52F27B13147002F9B66 /* LaunchpadNavVC.swift */,
 				101AF53127B13178002F9B66 /* LaunchpadListVC.swift */,
-				107DD91F27B3DD3A001EFE24 /* LauchpadDetailVC.swift */,
+				107DD91F27B3DD3A001EFE24 /* LaunchpadDetailVC.swift */,
 			);
 			path = "Launchpads List";
 			sourceTree = "<group>";
@@ -299,7 +299,7 @@
 				1007C98527B27695005EC44B /* RocketCell.swift in Sources */,
 				101AF53627B131DB002F9B66 /* LaunchListVC.swift in Sources */,
 				1007C98727B27E80005EC44B /* Rocket.swift in Sources */,
-				107DD92027B3DD3A001EFE24 /* LauchpadDetailVC.swift in Sources */,
+				107DD92027B3DD3A001EFE24 /* LaunchpadDetailVC.swift in Sources */,
 				101AF53827B131F3002F9B66 /* RocketNavVC.swift in Sources */,
 				101AF54D27B1846F002F9B66 /* NetworkManager.swift in Sources */,
 				108CB07627B2F67F003CE3A2 /* FilterSegmentedControl.swift in Sources */,

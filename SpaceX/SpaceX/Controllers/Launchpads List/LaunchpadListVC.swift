@@ -196,7 +196,7 @@ extension LaunchpadListVC: UICollectionViewDelegateFlowLayout {
 //MARK: - UICollectionViewDelegate
 extension LaunchpadListVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let launchpadDetailVC = LauchpadDetailVC()
+        let launchpadDetailVC = LaunchpadDetailVC()
         launchpadDetailVC.launchpadObject = filteredDataSource[indexPath.item]
         navigationController?.pushViewController(launchpadDetailVC, animated: true)
     }
