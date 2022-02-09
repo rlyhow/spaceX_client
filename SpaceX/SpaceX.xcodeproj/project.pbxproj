@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10048AB727B3E66900331405 /* LaunchpadDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10048AB627B3E66900331405 /* LaunchpadDetailHeaderView.swift */; };
 		1007C98527B27695005EC44B /* RocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007C98427B27695005EC44B /* RocketCell.swift */; };
 		1007C98727B27E80005EC44B /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007C98627B27E80005EC44B /* Rocket.swift */; };
 		1007C98A27B28208005EC44B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007C98927B28208005EC44B /* Extensions.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10048AB627B3E66900331405 /* LaunchpadDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadDetailHeaderView.swift; sourceTree = "<group>"; };
 		1007C98427B27695005EC44B /* RocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketCell.swift; sourceTree = "<group>"; };
 		1007C98627B27E80005EC44B /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		1007C98927B28208005EC44B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		101AF52727B126CC002F9B66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				107DD92127B3E553001EFE24 /* Blocks For Detail Pages */,
 				101AF54627B154F1002F9B66 /* CollectionViewCells */,
 				101AF54427B1522C002F9B66 /* ViewWithTwoShadows.swift */,
 				108CB07527B2F67F003CE3A2 /* FilterSegmentedControl.swift */,
@@ -179,6 +182,14 @@
 				1007C98D27B292C2005EC44B /* DownloadImageOperation.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		107DD92127B3E553001EFE24 /* Blocks For Detail Pages */ = {
+			isa = PBXGroup;
+			children = (
+				10048AB627B3E66900331405 /* LaunchpadDetailHeaderView.swift */,
+			);
+			path = "Blocks For Detail Pages";
 			sourceTree = "<group>";
 		};
 		1086E95427AF28F400C92686 = {
@@ -293,6 +304,7 @@
 				101AF54D27B1846F002F9B66 /* NetworkManager.swift in Sources */,
 				108CB07627B2F67F003CE3A2 /* FilterSegmentedControl.swift in Sources */,
 				101AF53027B13147002F9B66 /* LaunchpadNavVC.swift in Sources */,
+				10048AB727B3E66900331405 /* LaunchpadDetailHeaderView.swift in Sources */,
 				1086E96127AF28F500C92686 /* AppDelegate.swift in Sources */,
 				1007C99227B2A0D5005EC44B /* LaunchCell.swift in Sources */,
 				1007C98E27B292C2005EC44B /* DownloadImageOperation.swift in Sources */,
