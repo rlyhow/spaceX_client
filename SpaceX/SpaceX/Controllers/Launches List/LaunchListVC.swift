@@ -80,6 +80,7 @@ class LaunchListVC: UIViewController {
         navigationItem.titleView = filter
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow.up.arrow.down"), style: .plain, target: self, action: #selector(sortCollection))
         filter.selectedSegmentIndex = 0
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -238,5 +239,9 @@ extension LaunchListVC: UICollectionViewDelegateFlowLayout {
 
 //MARK: - UICollectionViewDelegate
 extension LaunchListVC: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let launchDetailVC = LaunchDetailVC()
+        launchDetailVC.launchObject = filteredDataSource[indexPath.item]
+        navigationController?.pushViewController(launchDetailVC, animated: true)
+    }
 }

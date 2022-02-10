@@ -29,6 +29,8 @@
 		101AF54D27B1846F002F9B66 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101AF54C27B1846F002F9B66 /* NetworkManager.swift */; };
 		101C225527B51A8F00A880B8 /* RocketDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101C225427B51A8F00A880B8 /* RocketDetailVC.swift */; };
 		101C225727B51DF100A880B8 /* RocketDetailHeaderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101C225627B51DF100A880B8 /* RocketDetailHeaderImageView.swift */; };
+		101C225D27B58EC200A880B8 /* LaunchDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101C225C27B58EC200A880B8 /* LaunchDetailVC.swift */; };
+		101C225F27B5909200A880B8 /* LaunchDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101C225E27B5909200A880B8 /* LaunchDetailHeaderView.swift */; };
 		107DD92027B3DD3A001EFE24 /* LaunchpadDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DD91F27B3DD3A001EFE24 /* LaunchpadDetailVC.swift */; };
 		1086E96127AF28F500C92686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96027AF28F500C92686 /* AppDelegate.swift */; };
 		1086E96327AF28F500C92686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086E96227AF28F500C92686 /* SceneDelegate.swift */; };
@@ -63,6 +65,8 @@
 		101AF54C27B1846F002F9B66 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		101C225427B51A8F00A880B8 /* RocketDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailVC.swift; sourceTree = "<group>"; };
 		101C225627B51DF100A880B8 /* RocketDetailHeaderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailHeaderImageView.swift; sourceTree = "<group>"; };
+		101C225C27B58EC200A880B8 /* LaunchDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailVC.swift; sourceTree = "<group>"; };
+		101C225E27B5909200A880B8 /* LaunchDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailHeaderView.swift; sourceTree = "<group>"; };
 		107DD91F27B3DD3A001EFE24 /* LaunchpadDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadDetailVC.swift; sourceTree = "<group>"; };
 		1086E95D27AF28F500C92686 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1086E96027AF28F500C92686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			children = (
 				101AF53327B131C0002F9B66 /* LaunchNavVC.swift */,
 				101AF53527B131DB002F9B66 /* LaunchListVC.swift */,
+				101C225C27B58EC200A880B8 /* LaunchDetailVC.swift */,
 			);
 			path = "Launches List";
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				101C225627B51DF100A880B8 /* RocketDetailHeaderImageView.swift */,
+				101C225E27B5909200A880B8 /* LaunchDetailHeaderView.swift */,
 				10048AB627B3E66900331405 /* LaunchpadDetailHeaderView.swift */,
 				10BA71A127B4008700FF5FD0 /* DescriptionStackView.swift */,
 				10BA71A327B4034300FF5FD0 /* MapStackView.swift */,
@@ -327,6 +333,7 @@
 				10BA71A427B4034300FF5FD0 /* MapStackView.swift in Sources */,
 				1007C98E27B292C2005EC44B /* DownloadImageOperation.swift in Sources */,
 				101AF53427B131C0002F9B66 /* LaunchNavVC.swift in Sources */,
+				101C225F27B5909200A880B8 /* LaunchDetailHeaderView.swift in Sources */,
 				1007C99027B2A06F005EC44B /* Launch.swift in Sources */,
 				101AF54A27B1708F002F9B66 /* Launchpad.swift in Sources */,
 				101AF54827B1554B002F9B66 /* LaunchpadCell.swift in Sources */,
@@ -336,6 +343,7 @@
 				10BA71A227B4008700FF5FD0 /* DescriptionStackView.swift in Sources */,
 				101AF53A27B13206002F9B66 /* RocketListVC.swift in Sources */,
 				101AF53227B13178002F9B66 /* LaunchpadListVC.swift in Sources */,
+				101C225D27B58EC200A880B8 /* LaunchDetailVC.swift in Sources */,
 				101AF54527B1522C002F9B66 /* ViewWithTwoShadows.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
