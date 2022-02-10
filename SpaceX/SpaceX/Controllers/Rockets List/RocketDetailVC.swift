@@ -136,6 +136,14 @@ class RocketDetailVC: UIViewController {
         return stack
     }()
     
+    let backButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "backward"), for: .normal)
+        button.addTarget(self, action: #selector(goBackward), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -155,6 +163,7 @@ class RocketDetailVC: UIViewController {
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(headerBlock)
         mainScrollView.addSubview(mainStackView)
+        view.addSubview(backButton)
         
         mainStackView.addArrangedSubview(descriptionBlock)
         mainStackView.addArrangedSubview(overviewBlock)
@@ -181,7 +190,14 @@ class RocketDetailVC: UIViewController {
             mainStackView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor),
             mainStackView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor),
+            
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
         ])
+    }
+    
+    @objc func goBackward() {
+        navigationController?.popViewController(animated: true)
     }
     
 }
