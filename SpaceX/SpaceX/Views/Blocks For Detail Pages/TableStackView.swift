@@ -62,7 +62,11 @@ class TableStackView: UIStackView {
     
     func addInfo(labelText: String, detailsText: String?) {
         
-        guard let _ = detailsText else {
+        guard let text = detailsText else {
+            return
+        }
+        
+        if text.isEmpty {
             return
         }
         
