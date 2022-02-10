@@ -79,6 +79,8 @@ class RocketListVC: UIViewController {
         super.viewWillAppear(animated)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow.up.arrow.down"), style: .plain, target: self, action: #selector(sortCollection))
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -199,5 +201,9 @@ extension RocketListVC: UICollectionViewDelegateFlowLayout {
 
 //MARK: - UICollectionViewDelegate
 extension RocketListVC: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let rocketDetailVC = RocketDetailVC()
+        rocketDetailVC.rocketObject = filteredDataSource[indexPath.item]
+        navigationController?.pushViewController(rocketDetailVC, animated: true)
+    }
 }
