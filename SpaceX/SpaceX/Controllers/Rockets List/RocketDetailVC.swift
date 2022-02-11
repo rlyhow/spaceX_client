@@ -10,6 +10,8 @@ import UIKit
 class RocketDetailVC: UIViewController {
     
     var rocketObject: Rocket?
+    private let networkManager = NetworkManager()
+    private let imageCache = NSCache<NSString, UIImage>()
     
     var mainScrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -144,9 +146,23 @@ class RocketDetailVC: UIViewController {
         return button
     }()
     
+    private let flowLayout = UICollectionViewFlowLayout()
+    private lazy var collectionView: UICollectionView = {
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.backgroundColor = UIColor.white
+        collection.showsHorizontalScrollIndicator = false
+        flowLayout.scrollDirection = .horizontal
+        return collection
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(ImageCell.self, forCellWithReuseIdentifier: "ImageCell")
         
         addViews()
         addConstraints()
@@ -167,6 +183,7 @@ class RocketDetailVC: UIViewController {
         
         mainStackView.addArrangedSubview(descriptionBlock)
         mainStackView.addArrangedSubview(overviewBlock)
+        mainStackView.addArrangedSubview(collectionView)
         mainStackView.addArrangedSubview(enginesBlock)
         mainStackView.addArrangedSubview(firstStageBlock)
         mainStackView.addArrangedSubview(secondStageBlock)
@@ -193,6 +210,8 @@ class RocketDetailVC: UIViewController {
             
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            
+            collectionView.heightAnchor.constraint(equalToConstant: 210),
         ])
     }
     
@@ -200,4 +219,56 @@ class RocketDetailVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func downloadImageForIndexPath(_ indexPath: IndexPath) {
+        let urlString = rocketObject!.flickrImages[indexPath.item]
+    
+        networkManager.loadImage(forUrl: urlString) { [unowned self] image in
+            DispatchQueue.main.async {
+                imageCache.setObject(image!, forKey: urlString as NSString)
+                collectionView.reloadItems(at: [indexPath])
+            }
+        }
+    }
+    
 }
+
+// MARK: - UICollectionViewDataSource
+extension RocketDetailVC: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        (rocketObject?.flickrImages.count)!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        
+        if let image = imageCache.object(forKey: (rocketObject?.flickrImages[indexPath.item])! as NSString) {
+            cell.rocketImage.image = image
+        } else {
+            downloadImageForIndexPath(indexPath)
+        }
+        
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension RocketDetailVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return  CGSize(width: collectionView.frame.height * 0.75, height: collectionView.frame.height - 10)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        20
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+extension RocketDetailVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    }
+}
+
