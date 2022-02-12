@@ -9,7 +9,7 @@ import UIKit
 
 class LaunchDetailVC: UIViewController {
 
-    var launchObject: Launch?
+    var launchObject: Launch!
     
     var mainScrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -22,7 +22,6 @@ class LaunchDetailVC: UIViewController {
         let view = LaunchDetailHeaderView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.setupView(launchObject: launchObject)
-        //view.backgroundColor = .red
         return view
     }()
     
@@ -39,7 +38,7 @@ class LaunchDetailVC: UIViewController {
     
     lazy var descriptionBlock: DescriptionStackView = {
         let stack = DescriptionStackView()
-        stack.setup(label: "Description", descriptionText: launchObject?.details)
+        stack.setup(label: "Description", descriptionText: launchObject.details)
         return stack
     }()
     
@@ -47,13 +46,11 @@ class LaunchDetailVC: UIViewController {
         let stack = TableStackView()
         stack.setup(label: "Overview")
         
-        if let staticFireDateUTC = launchObject?.staticFireDateUTC {
+        if let staticFireDateUTC = launchObject.staticFireDateUTC {
             stack.addInfo(labelText: "Static fire date", detailsText: staticFireDateUTC.getFormattedDate(formatFrom: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", formatTo: "MMMM d, yyyy"))
         }
-        
-        stack.addInfo(labelText: "Launch date", detailsText: launchObject?.dateUTC.getFormattedDate(formatFrom: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", formatTo: "MMMM d, yyyy"))
-        
-        if let success = launchObject?.success {
+        stack.addInfo(labelText: "Launch date", detailsText: launchObject.dateUTC.getFormattedDate(formatFrom: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", formatTo: "MMMM d, yyyy"))
+        if let success = launchObject.success {
             stack.addInfo(labelText: "Success", detailsText: success ? "Yes" : "No")
         }
         
@@ -79,7 +76,7 @@ class LaunchDetailVC: UIViewController {
         mainScrollView.addSubview(headerBlock)
         mainScrollView.addSubview(mainStackView)
         
-        if let _ = launchObject?.details {
+        if let _ = launchObject.details {
             mainStackView.addArrangedSubview(descriptionBlock)
         }
         mainStackView.addArrangedSubview(overviewBlock)
