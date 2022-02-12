@@ -93,4 +93,13 @@ class LaunchpadCell: UICollectionViewCell {
         self.launchpadStatusLabel.text = launchpadObject.status
     }
     
+    override var isHighlighted: Bool {
+      didSet {
+          UIView.animate(withDuration: 0.2) {
+          let scale: CGFloat = 0.9
+          self.transform = self.isHighlighted ? CGAffineTransform(scaleX: scale, y: scale) : .identity
+        }
+      }
+    }
+    
 }

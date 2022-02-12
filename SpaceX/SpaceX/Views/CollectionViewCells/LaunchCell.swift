@@ -154,4 +154,13 @@ class LaunchCell: UICollectionViewCell {
         }
     }
     
+    override var isHighlighted: Bool {
+      didSet {
+          UIView.animate(withDuration: 0.2) {
+          let scale: CGFloat = 0.9
+          self.transform = self.isHighlighted ? CGAffineTransform(scaleX: scale, y: scale) : .identity
+        }
+      }
+    }
+    
 }
