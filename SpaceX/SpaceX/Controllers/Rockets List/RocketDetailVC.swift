@@ -9,7 +9,7 @@ import UIKit
 
 class RocketDetailVC: UIViewController {
     
-    var rocketObject: Rocket?
+    var rocketObject: Rocket!
     private let networkManager = NetworkManager()
     private let imageCache = NSCache<NSString, UIImage>()
     
@@ -23,7 +23,7 @@ class RocketDetailVC: UIViewController {
     lazy var headerBlock: RocketDetailHeaderImageView = {
         let imageView = RocketDetailHeaderImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.setup(image: rocketObject?.rocketImage, rocketName: rocketObject?.name)
+        imageView.setup(image: rocketObject.rocketImage, rocketName: rocketObject.name)
         return imageView
     }()
     
@@ -40,29 +40,20 @@ class RocketDetailVC: UIViewController {
     
     lazy var descriptionBlock: DescriptionStackView = {
         let stack = DescriptionStackView()
-        stack.setup(label: "Description", descriptionText: rocketObject?.rocketDescription)
+        stack.setup(label: "Description", descriptionText: rocketObject.rocketDescription)
         return stack
     }()
     
     lazy var overviewBlock: TableStackView = {
         let stack = TableStackView()
         stack.setup(label: "Overview")
-        stack.addInfo(labelText: "First launch", detailsText: rocketObject?.firstFlight.getFormattedDate(formatFrom: "yyyy-MM-dd", formatTo: "MMMM d, yyyy"))
-        if let costPerLaunch = rocketObject?.costPerLaunch {
-            stack.addInfo(labelText: "Launch cost", detailsText: String(costPerLaunch) + "$")
-        }
-        if let successRatePct = rocketObject?.successRatePct {
-            stack.addInfo(labelText: "Success", detailsText: String(successRatePct) + "%")
-        }
-        if let mass = rocketObject?.mass.kg {
-            stack.addInfo(labelText: "Mass", detailsText: String(mass))
-        }
-        if let height = rocketObject?.height.meters {
-            stack.addInfo(labelText: "Height", detailsText: String(height))
-        }
-        if let diameter = rocketObject?.diameter.meters {
-            stack.addInfo(labelText: "Diameter", detailsText: String(diameter))
-        }
+        stack.addInfo(labelText: "First launch", detailsText: rocketObject.firstFlight.getFormattedDate(formatFrom: "yyyy-MM-dd", formatTo: "MMMM d, yyyy"))
+        
+        stack.addInfo(labelText: "Launch cost", detailsText: String(rocketObject.costPerLaunch) + "$")
+        stack.addInfo(labelText: "Success", detailsText: String(rocketObject.successRatePct) + "%")
+        stack.addInfo(labelText: "Mass", detailsText: String(rocketObject.mass.kg))
+        stack.addInfo(labelText: "Height", detailsText: String(rocketObject.height.meters))
+        stack.addInfo(labelText: "Diameter", detailsText: String(rocketObject.diameter.meters ))
         
         return stack
     }()
@@ -70,14 +61,12 @@ class RocketDetailVC: UIViewController {
     lazy var enginesBlock: TableStackView = {
         let stack = TableStackView()
         stack.setup(label: "Engines")
-        stack.addInfo(labelText: "Type", detailsText: rocketObject?.engines.type)
-        stack.addInfo(labelText: "Layout", detailsText: rocketObject?.engines.layout)
-        stack.addInfo(labelText: "Version", detailsText: rocketObject?.engines.version)
-        if let number = rocketObject?.engines.number {
-            stack.addInfo(labelText: "Amount", detailsText: String(number))
-        }
-        stack.addInfo(labelText: "Propellant 1", detailsText: rocketObject?.engines.propellant1)
-        stack.addInfo(labelText: "Propellant 2", detailsText: rocketObject?.engines.propellant2)
+        stack.addInfo(labelText: "Type", detailsText: rocketObject.engines.type)
+        stack.addInfo(labelText: "Layout", detailsText: rocketObject.engines.layout)
+        stack.addInfo(labelText: "Version", detailsText: rocketObject.engines.version)
+        stack.addInfo(labelText: "Amount", detailsText: String(rocketObject.engines.number))
+        stack.addInfo(labelText: "Propellant 1", detailsText: rocketObject.engines.propellant1)
+        stack.addInfo(labelText: "Propellant 2", detailsText: rocketObject.engines.propellant2)
         
         return stack
     }()
@@ -85,22 +74,14 @@ class RocketDetailVC: UIViewController {
     lazy var firstStageBlock: TableStackView = {
         let stack = TableStackView()
         stack.setup(label: "First stage")
-    
-        if let reusable = rocketObject?.firstStage.reusable {
-            stack.addInfo(labelText: "Reusable", detailsText: reusable ? "Yes" : "No")
+        
+        stack.addInfo(labelText: "Reusable", detailsText: rocketObject.firstStage.reusable ? "Yes" : "No")
+        stack.addInfo(labelText: "Engines amount", detailsText: String(rocketObject.firstStage.engines))
+        if let burnTimeSEC = rocketObject.firstStage.burnTimeSEC {
+            stack.addInfo(labelText: "Burning time", detailsText: String(burnTimeSEC) + " seconds")
         }
-        if let costPerLaunch = rocketObject?.firstStage.engines {
-            stack.addInfo(labelText: "Engines amount", detailsText: String(costPerLaunch))
-        }
-        if let successRatePct = rocketObject?.firstStage.burnTimeSEC {
-            stack.addInfo(labelText: "Burning time", detailsText: String(successRatePct) + "seconds")
-        }
-        if let mass = rocketObject?.firstStage.thrustSeaLevel.kN {
-            stack.addInfo(labelText: "Thrust (sea level)", detailsText: String(mass) + "kN")
-        }
-        if let height = rocketObject?.firstStage.thrustVacuum.kN {
-            stack.addInfo(labelText: "Thrust (vacuum)", detailsText: String(height) + "kN")
-        }
+        stack.addInfo(labelText: "Thrust (sea level)", detailsText: String(rocketObject.firstStage.thrustSeaLevel.kN) + " kN")
+        stack.addInfo(labelText: "Thrust (vacuum)", detailsText: String(rocketObject.firstStage.thrustVacuum.kN) + " kN")
         
         return stack
     }()
@@ -109,18 +90,13 @@ class RocketDetailVC: UIViewController {
         let stack = TableStackView()
         stack.setup(label: "Second stage")
     
-        if let reusable = rocketObject?.firstStage.reusable {
-            stack.addInfo(labelText: "Reusable", detailsText: reusable ? "Yes" : "No")
+        stack.addInfo(labelText: "Reusable", detailsText: rocketObject.secondStage.reusable ? "Yes" : "No")
+        stack.addInfo(labelText: "Engines amount", detailsText: String(rocketObject.secondStage.engines))
+        if let successRatePct = rocketObject.secondStage.burnTimeSEC {
+            stack.addInfo(labelText: "Burning time", detailsText: String(successRatePct) + " seconds")
         }
-        if let costPerLaunch = rocketObject?.firstStage.engines {
-            stack.addInfo(labelText: "Engines amount", detailsText: String(costPerLaunch))
-        }
-        if let successRatePct = rocketObject?.firstStage.burnTimeSEC {
-            stack.addInfo(labelText: "Burning time", detailsText: String(successRatePct) + "seconds")
-        }
-        if let mass = rocketObject?.firstStage.thrustSeaLevel.kN {
-            stack.addInfo(labelText: "Thrust", detailsText: String(mass) + "kN")
-        }
+        stack.addInfo(labelText: "Thrust", detailsText: String(rocketObject.secondStage.thrust.kN) + " kN")
+        
         
         return stack
     }()
@@ -129,10 +105,8 @@ class RocketDetailVC: UIViewController {
         let stack = TableStackView()
         stack.setup(label: "Landing legs")
     
-        if let amount = rocketObject?.landingLegs.number {
-            stack.addInfo(labelText: "Amount", detailsText: String(amount))
-        }
-        stack.addInfo(labelText: "Material", detailsText: rocketObject?.landingLegs.material)
+        stack.addInfo(labelText: "Amount", detailsText: String(rocketObject.landingLegs.number))
+        stack.addInfo(labelText: "Material", detailsText: rocketObject.landingLegs.material)
         
         
         return stack
@@ -220,7 +194,7 @@ class RocketDetailVC: UIViewController {
     }
     
     func downloadImageForIndexPath(_ indexPath: IndexPath) {
-        let urlString = rocketObject!.flickrImages[indexPath.item]
+        let urlString = rocketObject.flickrImages[indexPath.item]
     
         networkManager.loadImage(forUrl: urlString) { [unowned self] image in
             DispatchQueue.main.async {
@@ -236,14 +210,14 @@ class RocketDetailVC: UIViewController {
 extension RocketDetailVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        (rocketObject?.flickrImages.count)!
+        rocketObject.flickrImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
         
-        if let image = imageCache.object(forKey: (rocketObject?.flickrImages[indexPath.item])! as NSString) {
+        if let image = imageCache.object(forKey: rocketObject.flickrImages[indexPath.item] as NSString) {
             cell.rocketImage.image = image
         } else {
             downloadImageForIndexPath(indexPath)
