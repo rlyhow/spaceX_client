@@ -10,7 +10,7 @@ import MapKit
 
 class LaunchpadDetailVC: UIViewController {
     
-    var launchpadObject: Launchpad?
+    var launchpadObject: Launchpad!
     
     var mainScrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -23,9 +23,9 @@ class LaunchpadDetailVC: UIViewController {
         let view = LaunchpadDetailHeaderView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.setupTextForHeaderView (
-            name: launchpadObject?.name,
-            fullName: launchpadObject?.fullName,
-            status: launchpadObject?.status
+            name: launchpadObject.name,
+            fullName: launchpadObject.fullName,
+            status: launchpadObject.status
         )
         return view
     }()
@@ -43,27 +43,23 @@ class LaunchpadDetailVC: UIViewController {
     
     lazy var descriptionBlock: DescriptionStackView = {
         let stack = DescriptionStackView()
-        stack.setup(label: "Description", descriptionText: launchpadObject?.details)
+        stack.setup(label: "Description", descriptionText: launchpadObject.details)
         return stack
     }()
     
     lazy var overviewBlock: TableStackView = {
         let stack = TableStackView()
         stack.setup(label: "Overview")
-        stack.addInfo(labelText: "Region", detailsText: launchpadObject?.region)
-        stack.addInfo(labelText: "Location", detailsText: launchpadObject?.locality)
-        if let launchAttempts = launchpadObject?.launchAttempts {
-            stack.addInfo(labelText: "Launch attempts", detailsText: String(launchAttempts))
-        }
-        if let launchSuccesses = launchpadObject?.launchSuccesses {
-            stack.addInfo(labelText: "Launch attempts", detailsText: String(launchSuccesses))
-        }
+        stack.addInfo(labelText: "Region", detailsText: launchpadObject.region)
+        stack.addInfo(labelText: "Location", detailsText: launchpadObject.locality)
+        stack.addInfo(labelText: "Launch attempts", detailsText: String(launchpadObject.launchAttempts))
+        stack.addInfo(labelText: "Launch attempts", detailsText: String(launchpadObject.launchSuccesses))
         
         return stack
     }()
     
     lazy var mapBlock: MapStackView = {
-        let stack = MapStackView(latitude: launchpadObject?.latitude, longitude: launchpadObject?.longitude, locality: launchpadObject?.locality, labelText: "Location")
+        let stack = MapStackView(latitude: launchpadObject.latitude, longitude: launchpadObject.longitude, locality: launchpadObject.locality, labelText: "Location")
         return stack
     }()
     
@@ -80,7 +76,7 @@ class LaunchpadDetailVC: UIViewController {
         
         tabBarController?.tabBar.isHidden = true
         
-        navigationItem.title = launchpadObject?.name
+        navigationItem.title = launchpadObject.name
         navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont(name: "Roboto-Bold", size: 24)!,
             .foregroundColor: UIColor(named: "White")!
@@ -92,18 +88,9 @@ class LaunchpadDetailVC: UIViewController {
         mainScrollView.addSubview(headerBlock)
         mainScrollView.addSubview(mainStackView)
         
-        if let _ = launchpadObject?.details {
-            mainStackView.addArrangedSubview(descriptionBlock)
-        }
-        
-        if launchpadObject?.region != nil || launchpadObject?.locality != nil || launchpadObject?.launchAttempts != nil || launchpadObject?.launchSuccesses != nil {
-            mainStackView.addArrangedSubview(overviewBlock)
-        }
-        
-        if let _ = launchpadObject?.latitude, let _ = launchpadObject?.longitude {
-            mainStackView.addArrangedSubview(mapBlock)
-        }
-        
+        mainStackView.addArrangedSubview(descriptionBlock)
+        mainStackView.addArrangedSubview(overviewBlock)
+        mainStackView.addArrangedSubview(mapBlock)
     }
     
     func addConstraints() {
