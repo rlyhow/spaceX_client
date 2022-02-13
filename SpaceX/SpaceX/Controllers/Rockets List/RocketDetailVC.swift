@@ -242,7 +242,9 @@ extension RocketDetailVC: UICollectionViewDelegateFlowLayout {
 //MARK: - UICollectionViewDelegate
 extension RocketDetailVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+        let imageBrowsingVC = ImageBrowsingVC()
+        imageBrowsingVC.imageView.image = imageCache.object(forKey: rocketObject.flickrImages[indexPath.item] as NSString)
+        navigationController?.pushViewController(imageBrowsingVC, animated: true)
     }
 }
 
