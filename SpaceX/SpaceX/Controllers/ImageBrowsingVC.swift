@@ -25,6 +25,14 @@ class ImageBrowsingVC: UIViewController {
         return image
     }()
     
+    let closeButton: CloseButton = {
+        let button = CloseButton()
+        button.addTarget(self, action: #selector(goBackward), for: .touchUpInside)
+        return button
+    }()
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -32,10 +40,15 @@ class ImageBrowsingVC: UIViewController {
         scrollView.delegate = self
         addViews()
         addConstraints()
+        
+        let scrollViewTap = UITapGestureRecognizer(target: self, action: #selector(scrollViewTapped))
+        scrollView.addGestureRecognizer(scrollViewTap)
     }
     
     func addViews() {
         view.addSubview(scrollView)
+        view.addSubview(closeButton)
+        
         scrollView.addSubview(imageView)
     }
     
@@ -53,7 +66,28 @@ class ImageBrowsingVC: UIViewController {
             imageView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
             imageView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
             imageView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 64),
+            closeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            closeButton.widthAnchor.constraint(equalToConstant: 36),
+            closeButton.heightAnchor.constraint(equalToConstant: 36),
         ])
+    }
+    
+    @objc func goBackward() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func scrollViewTapped() {
+        if closeButton.isHidden == true {
+            closeButton.isHidden = false
+            closeButton.isEnabled = true
+            view.backgroundColor = .white
+        } else {
+            closeButton.isHidden = true
+            closeButton.isEnabled = false
+            view.backgroundColor = .black
+        }
     }
 
 }
