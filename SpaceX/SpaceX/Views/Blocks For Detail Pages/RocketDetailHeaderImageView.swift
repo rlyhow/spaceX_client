@@ -18,6 +18,13 @@ class RocketDetailHeaderImageView: UIImageView {
         return label
     }()
     
+    private let gradientLayer: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.locations = [0.5, 1]
+        gradient.colors = [ UIColor.clear.cgColor, UIColor.black.cgColor ]
+        return gradient
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -30,6 +37,7 @@ class RocketDetailHeaderImageView: UIImageView {
     }
     
     private func addViews() {
+        layer.addSublayer(gradientLayer)
         addSubview(rocketNameLabel)
     }
     
@@ -45,6 +53,12 @@ class RocketDetailHeaderImageView: UIImageView {
         self.image = image
         self.contentMode = .scaleAspectFill
         self.rocketNameLabel.text = rocketName
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+          
+        gradientLayer.frame = frame
     }
     
 }
